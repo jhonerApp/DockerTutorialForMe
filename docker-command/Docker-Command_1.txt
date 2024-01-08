@@ -1,0 +1,31 @@
+
+Command to build your app to docker engine
+>docker build .
+
+Run your app depends on the port of your config in the system
+> docker run -p 3000:3000 1ceab10a5b49
+
+Stop the app in docker engine.
+> docker stop <container names>
+> ex:docker stop cool_nightingale
+
+Check the list of container running in docker engine
+> docker ps
+
+Images
+ > Templates/blueprints for containers
+ > contains code + required tools
+ > we can define it once, but run it multiple times on different machines and different servers,And the image is that sharable package
+with all the setup instructions and all the code.And the container will be concrete running instance off such an image.
+
+Install application by using url: https://hub.docker.com/_/node
+> Docker run <application name>
+> ex: docker run node
+
+Display all the process in containers
+> docker ps -a
+> Status:Exited means not running anymore
+
+-Word "-it" Expose an interactive session from inside the container to our hosting machine.Or you can access the application inside the container.
+> docker run -it node
+> Docker run -it <application name>
