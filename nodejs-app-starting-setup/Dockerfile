@@ -4,7 +4,7 @@ FROM node
 
 WORKDIR /app
 
-# setting working directory of the docker container
+# setting working directory inside the docker container
 # this tells docker that all the subsequent commands will be executed from this folder
 # RUN npm install runs all the files inside your workdir
 
