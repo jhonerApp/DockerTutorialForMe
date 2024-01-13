@@ -1,9 +1,11 @@
 
 Command to build your app to docker engine
->docker build .
+> docker build .
+> (.) or dot we tell the docker that the dockerfile will be the same folder as we running this command.
 
 Run your app depends on the port of your config in the system
 > docker run -p 3000:3000 1ceab10a5b49
+>  docker run -p <port that you can access to your local>:<port in your image> <containerID>
 
 Stop the app in docker engine.
 > docker stop <container names>
@@ -22,10 +24,24 @@ Install application by using url: https://hub.docker.com/_/node
 > Docker run <application name>
 > ex: docker run node
 
-Display all the process in containers
+Display all containers
 > docker ps -a
 > Status:Exited means not running anymore
 
 -Word "-it" Expose an interactive session from inside the container to our hosting machine.Or you can access the application inside the container.
 > docker run -it node
 > Docker run -it <application name>
+
+===============================================
+SAMPLE IMAGGE BELOW
+===============================================
+
+FROM node 
+# node - image that existing in docker hub
+# cached locally
+
+COPY . . 
+
+# .. specifiy 2 paths, 1st path is outside of container,outside of the image
+# where the files leave that should be copied into the image
+
