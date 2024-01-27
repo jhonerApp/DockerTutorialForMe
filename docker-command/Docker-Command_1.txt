@@ -4,8 +4,13 @@ Command to build your app to docker engine
 > (.) or dot we tell the docker that the dockerfile will be the same folder as we running this command.
 
 Run your app depends on the port of your config in the system
+"Docker run"- Creates new docker container, once running or created a container no need to use again because it was created docker before.
+
+
 > docker run -p 3000:3000 1ceab10a5b49
->  docker run -p <port that you can access to your local>:<port in your image> <containerID>
+>  docker run -p <port that you can access to your local>:<port in your image> <image>
+> docker run -p 3000:3000 -d 1ceab10a5b49 - "-d" detach you when the container run.
+
 
 Stop the app in docker engine.
 > docker stop <container names>
@@ -33,7 +38,7 @@ Display all containers
 > Docker run -it <application name>
 
 ===============================================
-SAMPLE IMAGGE BELOW
+SAMPLE IMAGE BELOW
 ===============================================
 
 FROM node 
@@ -45,3 +50,34 @@ COPY . .
 # .. specifiy 2 paths, 1st path is outside of container,outside of the image
 # where the files leave that should be copied into the image
 
+
+============================================================
+
+DISPLAY SAMPLE COMMAND PER PARMETER
+ > docker logs --help  - additional --help
+ OR
+ > docker run --help 
+
+if you started a container in detached mode(-d) , You can attach without restarting the container
+> docker attach container
+
+Run existing container
+> docker start <container name>
+> docker start -a <container name> - a means attach
+
+logs = command to show the activity in your command.
+-f  = follow log output , to display future log
+> docker logs de89999c86c9 -f
+
+To allow you to run your application using cmd command, Without running your application using port
+-i = interactive
+-t = Allocate a pseudo-TTY
+> docker run -it <image id>
+OR
+> docker run -i -t <image id>
+
+COMMONLY USE IF YOUR APPLICATION RUNS USING CMD COMMAND TO SHOW THE OUTPUT
+-a  --attach 		Attach STDOUT/STDERR and forward signals
+-i, --interactive       Attach container's STDIN
+
+> docker start -a -i <container name>
